@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(ConfigurableJoint))]
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour {
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField]
     private float thrusterForce = 1000f;
+
+    Animator animator;
 
     [Header("Joint Options")]
     [SerializeField]
@@ -31,12 +34,13 @@ public class PlayerController : MonoBehaviour {
     {
         motor = GetComponent<PlayerMotor>();
         joint = GetComponent<ConfigurableJoint>();
-
+        animator = GetComponent<Animator>();
         SetJointSetting(jointSpring);
     }
 
     private void Update()
     {
+
         float _xMove = Input.GetAxisRaw("Horizontal");
         float _zMove = Input.GetAxisRaw("Vertical");
 
@@ -44,6 +48,8 @@ public class PlayerController : MonoBehaviour {
         Vector3 _moveVertical = transform.forward * _zMove;
 
         Vector3 _velocity = (_moveHorizontal + _moveVertical).normalized * speed;
+
+        animator.SetFloat("ForwardVelocity", _zMove);
 
         motor.Move(_velocity);
 

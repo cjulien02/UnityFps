@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/jcavar01/Documents/UnityProject/fps_unity/bin/fps_unity.exe
+C:/Users/Julien/Documents/UnityProjects/UnityFps/bin/fps_unity.exe
 SceneListBegin?
 Assets/Scenes/MainScene.unity
 SceneListEnd?
@@ -137,6 +137,7 @@ e7489514a648ce787e3e741d97e0f561 Assembly-CSharp.dll:UnityStandardAssets.Utility
 60d396b860a9b4ccc4d5f523e637a6d7 Assembly-CSharp.dll:.PlayerController
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:UnityStandardAssets.Vehicles.Car.CarUserControl
+7c21d7a2b67f7a3a47459770ae82ea2b Assembly-CSharp.dll:.PlayerShoot
 382b8ef512fa8d6108723a01b57af65b UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 d22c788799ee45d8676254eccf20e8b8 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 8b2e24dd05c0c36bfb534c6e39168b21 Assembly-CSharp.dll:UnityStandardAssets.Utility.ParticleSystemDestroyer
@@ -154,6 +155,7 @@ fa1c317e7807ba3c9b05056693f277ff Assembly-CSharp.dll:UnityStandardAssets.CrossPl
 4ea8d9566bdcd2e6d7cf97aef45ed480 Assembly-CSharp.dll:UnityStandardAssets.Utility.PlatformSpecificContent
 4bd2ce0ce7ea9374f663549b0ba0aa06 Assembly-CSharp.dll:UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter
 96a67b768694580a83d9fdd3c5161f6a Assembly-CSharp.dll:.CameraSwitch
+aef898fc8a844ca9a3db8f375c0b4978 Assembly-CSharp.dll:.PlayerSetup
 81d6a421cbac2031cd5e35b10c8ac717 Assembly-CSharp.dll:UnityStandardAssets.Utility.ActivateTrigger
 60e3a31993bab65e1efb2350a900d178 Assembly-CSharp.dll:UnityStandardAssets.CrossPlatformInput.InputAxisScrollbar
 984325a0f27f470906ea181a933fb4b1 Assembly-CSharp.dll:UnityStandardAssets.Vehicles.Aeroplane.AeroplaneAiControl
@@ -256,4 +258,5 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 36ed8d92a07a53bf383bc90e377cc388 Assembly-CSharp.dll:UnityStandardAssets._2D.PlatformerCharacter2D
 695c9335429d4798b6f74ca73c042ff4 Assembly-CSharp.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch
-01d1b68a676f8915f6b80ccb99e42620 Assembly-CSharp.dll:.PlayerSetup
+8b3446a9a16c3cd164ba24b04a50e482 Assembly-CSharp.dll:.GameManager
+3011159e3f4064914d1c33e254449b76 Assembly-CSharp.dll:.Player

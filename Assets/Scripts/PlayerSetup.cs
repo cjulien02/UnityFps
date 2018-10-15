@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(Player))]
+[RequireComponent(typeof(PlayerController))]
 public class PlayerSetup : NetworkBehaviour {
     [SerializeField]
     private Behaviour[] componentToDisable;
@@ -40,6 +41,11 @@ public class PlayerSetup : NetworkBehaviour {
             SetLayerRecursively(physicGraphics, LayerMask.NameToLayer(DontDrawLayerName));
             playerUIInstance = Instantiate(playerUIPrefab);
             playerUIInstance.name = playerUIPrefab.name;
+
+            PlayerUI playerUI = playerUIInstance.GetComponent<PlayerUI>();
+
+            playerUI.SetPlayerController(GetComponent<PlayerController>());
+            Debug.Log("Set PLayerUI PlayerController");
         }
 
         

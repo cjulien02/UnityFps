@@ -543,7 +543,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 823
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -902,7 +902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon:
     name: Glock
-    damage: 10
+    damage: 40
     range: 100
   cam: {fileID: 20279299146184816}
   mask:
@@ -989,6 +989,10 @@ MonoBehaviour:
   - {fileID: 114192544606912162}
   - {fileID: 95116114936389390}
   remotePlayerName: RemotePlayer
+  DontDrawLayerName: DontDraw
+  physicGraphics: {fileID: 1709302160951074}
+  playerUIPrefab: {fileID: 1658574826911078, guid: dfc9915805bc5124e824c43a1c971a2f,
+    type: 2}
 --- !u!114 &114569468136056386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1019,7 +1023,6 @@ MonoBehaviour:
   xLookSensitivity: 4
   yLookSensitivity: 4
   thrusterForce: 1300
-  jointMode: 1
   jointSpring: 10
   jointMaxForce: 40
 --- !u!114 &114647096243645148

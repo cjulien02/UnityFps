@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 95116114936389390}
   - component: {fileID: 114647096243645148}
   - component: {fileID: 114215226298137598}
+  - component: {fileID: 82390237645307730}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -723,6 +724,101 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433564990659994}
   m_Enabled: 1
+--- !u!82 &82390237645307730
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973376912383040}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95116114936389390
 Animator:
   serializedVersion: 3
@@ -773,9 +869,10 @@ MonoBehaviour:
     name: Blaster
     damage: 5
     range: 100
-    fireRate: 0
+    fireRate: 10
     weaponGraphics: {fileID: 1770865274016184, guid: b980d0c430d98424fa63918a4c53a5b8,
       type: 2}
+    shootClip: {fileID: 8300000, guid: dd16a0bc01b76054ba18327bc3b2570e, type: 3}
 --- !u!114 &114218694512611510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -791,6 +888,13 @@ MonoBehaviour:
   disableOnDeath:
   - {fileID: 114578176829915326}
   - {fileID: 114192544606912162}
+  disableGameObjectsOnDeath:
+  - {fileID: 1709302160951074}
+  - {fileID: 1433564990659994}
+  deathEffect: {fileID: 1271547249220356, guid: b9b840cd33d18fb4fa5ba10db0cc1b09,
+    type: 2}
+  spawnEffect: {fileID: 1258289400551812, guid: 5661ddb2e29b54244a8ca97b333e4102,
+    type: 2}
 --- !u!114 &114266839253348488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -861,6 +965,7 @@ MonoBehaviour:
   physicGraphics: {fileID: 1709302160951074}
   playerUIPrefab: {fileID: 1658574826911078, guid: dfc9915805bc5124e824c43a1c971a2f,
     type: 2}
+  playerUIInstance: {fileID: 0}
 --- !u!114 &114569468136056386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -893,6 +998,9 @@ MonoBehaviour:
   thrusterForce: 1300
   thrusterBurnSpeed: 0.4
   thrusterFuelRegenSpeed: 0.3
+  environementMask:
+    serializedVersion: 2
+    m_Bits: 0
   jointSpring: 10
   jointMaxForce: 40
 --- !u!114 &114647096243645148

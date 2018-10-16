@@ -11,4 +11,6 @@ public class PlayerWeapon{
     public float fireRate = 0f;
 
     public GameObject weaponGraphics;
+
+    public AudioClip shootClip;
 }

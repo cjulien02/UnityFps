@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
+[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(WeaponManager))]
 public class PlayerShoot : NetworkBehaviour {
 
@@ -12,6 +13,7 @@ public class PlayerShoot : NetworkBehaviour {
 
     private PlayerWeapon currentWeapon;
     private WeaponManager weaponManager;
+    private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +23,8 @@ public class PlayerShoot : NetworkBehaviour {
             this.enabled = false;
         }
         weaponManager = GetComponent<WeaponManager>();
+
+        audioSource = GetComponent<AudioSource>();
 	}
 
     private void Update()
@@ -73,8 +77,11 @@ public class PlayerShoot : NetworkBehaviour {
 
     [ClientRpc]
     private void RpcDoShootEffect()
-    {
+    {        
         weaponManager.GetCurrentWeaponGraphics().muzzleFlash.Play();
+        audioSource.pitch = audioSource.pitch * 2;
+        audioSource.PlayOneShot(currentWeapon.shootClip);
+        audioSource.pitch = audioSource.pitch / 2;
     }
 
     [Client]

@@ -13,7 +13,6 @@ public class PlayerUI : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log("update amount");
         SetAmountFuel(playerController.GetThrusterAmount());
     }
 

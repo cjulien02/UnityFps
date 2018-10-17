@@ -38,12 +38,10 @@ public class PlayerSetup : NetworkBehaviour {
             PlayerUI playerUI = playerUIInstance.GetComponent<PlayerUI>();
 
             playerUI.SetPlayerController(GetComponent<PlayerController>());
-            Debug.Log("Set PLayerUI PlayerController");
+            playerUI.SetPlayer(GetComponent<Player>());
+            GetComponent<Player>().Setup();
         }
 
-        
-
-        GetComponent<Player>().Setup();
     }
 
     private void SetLayerRecursively(GameObject obj, int layer)
@@ -80,8 +78,11 @@ public class PlayerSetup : NetworkBehaviour {
     {
         Destroy(playerUIInstance);
 
-        GameManager.instance.SetSceneCameraActive(true);
+        if (isLocalPlayer)
+        {
+            GameManager.instance.SetSceneCameraActive(true);
 
-        GameManager.UnregisterPlayer(transform.name);
+            GameManager.UnregisterPlayer(transform.name);
+        }       
     }
 }

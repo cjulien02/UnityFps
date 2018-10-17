@@ -32,16 +32,45 @@ public class Player : NetworkBehaviour {
     [SerializeField]
     private GameObject spawnEffect;
 
+    bool firstSetup = true;
+
     public void Setup()
     {
-        hasEnable = new bool[disableOnDeath.Length];
-
-        for(int i = 0; i < disableOnDeath.Length; i++)
+        if (isLocalPlayer)
         {
-            hasEnable[i] = disableOnDeath[i].enabled;
-        }
+            GameManager.instance.SetSceneCameraActive(true);
+            GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
 
-        SetDefaults();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }       
+  
+        CmdBroadcastPlayserSetup();
+    }
+
+    [Command]
+    private void CmdBroadcastPlayserSetup()
+    {
+        RpcSetupPLayerOnAllClient();
+    }
+
+    [ClientRpc]
+    private void RpcSetupPLayerOnAllClient()
+    {
+       /* if (firstSetup)
+        {*/
+            hasEnable = new bool[disableOnDeath.Length];
+
+            for (int i = 0; i < disableOnDeath.Length; i++)
+            {
+                hasEnable[i] = disableOnDeath[i].enabled;
+            }
+
+            SetDefaults();
+
+            firstSetup = false;
+        /*}*/
+       
     }
 
     private void Update()
@@ -53,7 +82,7 @@ public class Player : NetworkBehaviour {
 
         if (Input.GetKeyDown("k"))
         {
-            RpcTakeDamage(200);
+            RpcTakeDamage(10);
         }
     }
 
@@ -64,7 +93,8 @@ public class Player : NetworkBehaviour {
         Transform startPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = startPoint.position;
         transform.rotation = startPoint.rotation;
-        SetDefaults();
+        yield return new WaitForSeconds(0.1f);
+        Setup();
     }
 
     private void SetDefaults()
@@ -89,14 +119,13 @@ public class Player : NetworkBehaviour {
             collider.enabled = true;
         }
 
-        if (isLocalPlayer)
-        {
-            GameManager.instance.SetSceneCameraActive(true);
-            GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
-        }
-
         GameObject gfxInst = (GameObject)Instantiate(spawnEffect, transform.position, Quaternion.identity);
         Destroy(gfxInst, 3f);
+    }
+
+    public float GetHealth()
+    {
+        return (float)health / (float)maxHealth;
     }
 
     [ClientRpc]

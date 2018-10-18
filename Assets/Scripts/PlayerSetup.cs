@@ -40,6 +40,7 @@ public class PlayerSetup : NetworkBehaviour {
             playerUI.SetPlayerController(GetComponent<PlayerController>());
             playerUI.SetPlayer(GetComponent<Player>());
             GetComponent<Player>().Setup();
+            
         }
 
     }

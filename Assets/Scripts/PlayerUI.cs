@@ -10,6 +10,18 @@ public class PlayerUI : MonoBehaviour {
     [SerializeField]
     private RectTransform healthFill;
 
+    [SerializeField]
+    GameObject pauseMenu;
+
+    private void Start()
+    {
+        PauseMenu.isON = false;
+        pauseMenu.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     public void SetPlayerController(PlayerController controller)
     {
         playerController = controller;
@@ -24,6 +36,29 @@ public class PlayerUI : MonoBehaviour {
     {
         SetAmountFuel(playerController.GetThrusterAmount());
         SetAmountHealth(player.GetHealth());
+
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            ToggleMenu();
+        }
+    }
+
+    private void ToggleMenu()
+    {
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+
+        PauseMenu.isON = pauseMenu.activeSelf;
+
+        if (PauseMenu.isON)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;           
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     private void SetAmountHealth(float amount)

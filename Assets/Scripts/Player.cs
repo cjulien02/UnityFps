@@ -41,8 +41,7 @@ public class Player : NetworkBehaviour {
             GameManager.instance.SetSceneCameraActive(true);
             GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
 
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            
         }       
   
         CmdBroadcastPlayserSetup();

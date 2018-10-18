@@ -993,8 +993,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  xLookSensitivity: 4
-  yLookSensitivity: 4
+  xLookSensitivity: 3
+  yLookSensitivity: 3
   thrusterForce: 1300
   thrusterBurnSpeed: 0.4
   thrusterFuelRegenSpeed: 0.3

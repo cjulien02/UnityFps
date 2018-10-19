@@ -333,7 +333,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1973376912383040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 4.8214817, y: 0.52184796, z: -17.137833}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4754845617186998}
@@ -867,10 +867,10 @@ MonoBehaviour:
   weaponHolder: {fileID: 4097164973219316}
   primaryWeapon:
     name: Blaster
-    damage: 5
+    damage: 100
     range: 100
-    fireRate: 10
-    weaponGraphics: {fileID: 1770865274016184, guid: b980d0c430d98424fa63918a4c53a5b8,
+    fireRate: 1
+    weaponGraphics: {fileID: 1433553617876188, guid: 34462394c1bdb804685f629bb4b5a44c,
       type: 2}
     shootClip: {fileID: 8300000, guid: dd16a0bc01b76054ba18327bc3b2570e, type: 3}
 --- !u!114 &114218694512611510
@@ -992,9 +992,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5a40e3beb260c4b993316aa5df13b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  xLookSensitivity: 3
-  yLookSensitivity: 3
+  speed: 5
+  xLookSensitivity: 2
+  yLookSensitivity: 1.5
   thrusterForce: 1300
   thrusterBurnSpeed: 0.4
   thrusterFuelRegenSpeed: 0.3
@@ -1121,7 +1121,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 1, z: 0}
+  m_ConnectedAnchor: {x: 4.8214817, y: 0.52184796, z: -17.137833}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -1212,11 +1212,11 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443473186332798}
   serializedVersion: 5
-  lengthInSec: 1
+  lengthInSec: 0.3
   simulationSpeed: 1
   stopAction: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -1231,7 +1231,7 @@ ParticleSystem:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1240,7 +1240,7 @@ ParticleSystem:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1284,8 +1284,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.75
-      minScalar: 0.49999997
+      scalar: 0.1
+      minScalar: 0.0001
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1435,8 +1435,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6
-      minScalar: 4
+      scalar: 3
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5655,7 +5655,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1676713477205774}
   serializedVersion: 5
-  lengthInSec: 1
+  lengthInSec: 0.3
   simulationSpeed: 1
   stopAction: 0
   looping: 1
@@ -5727,8 +5727,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.75
-      minScalar: 0.49999997
+      scalar: 0.1
+      minScalar: 0.0001
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5878,8 +5878,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6
-      minScalar: 4
+      scalar: 3
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:

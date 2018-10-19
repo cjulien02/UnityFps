@@ -15,6 +15,12 @@ public class PauseMenu : MonoBehaviour {
     }
     public void LeaveRoom()
     {
+        if(networkManager.matchMaker == null)
+        {
+            networkManager.StopHost();
+            networkManager.matchMaker = null;
+            return;
+        }
         MatchInfo matchInfo = networkManager.matchInfo;
 
         networkManager.StopHost();

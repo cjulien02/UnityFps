@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4132991584795008}
   - component: {fileID: 114542734999647578}
   - component: {fileID: 114138980809217182}
+  - component: {fileID: 114426814313347354}
+  - component: {fileID: 114022059561680846}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -41,6 +43,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114022059561680846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1033011902466498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114138980809217182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,6 +69,19 @@ MonoBehaviour:
   showGUI: 1
   offsetX: 0
   offsetY: 0
+--- !u!114 &114426814313347354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1033011902466498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c23c9fe65a6444ea829ee14228d227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomSize: 6
+  lobbyUI: {fileID: 0}
 --- !u!114 &114542734999647578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,4 +163,4 @@ MonoBehaviour:
   matchName: default
   matchSize: 4
   isNetworkActive: 0
-  matchMaker: {fileID: 0}
+  matchMaker: {fileID: 114022059561680846}

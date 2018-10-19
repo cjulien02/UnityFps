@@ -41,7 +41,7 @@ public class Player : NetworkBehaviour {
             GameManager.instance.SetSceneCameraActive(true);
             GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
 
-            
+            SetDefaults();
         }       
   
         CmdBroadcastPlayserSetup();
@@ -103,7 +103,8 @@ public class Player : NetworkBehaviour {
 
         for (int i = 0; i < disableOnDeath.Length; i++)
         {
-            disableOnDeath[i].enabled = hasEnable[i];
+            Debug.Log(string.Format("element: {0} - {1}", i, disableOnDeath[i]));
+            disableOnDeath[i].enabled = true;
         }
 
         for (int i = 0; i < disableOnDeath.Length; i++)

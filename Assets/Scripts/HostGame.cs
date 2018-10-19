@@ -5,6 +5,9 @@ public class HostGame : MonoBehaviour {
     [SerializeField]
     private uint roomSize = 6;
 
+    [SerializeField]
+    private GameObject lobbyUI;
+
     private string roomName = "Default";
 
     private NetworkManager networkManager;
@@ -12,12 +15,14 @@ public class HostGame : MonoBehaviour {
     public void Start()
     {
         networkManager = NetworkManager.singleton;
-
-        if(networkManager.matchMaker == null)
+        lobbyUI.SetActive(false);
+        networkManager.matchMaker = null;
+        /*if(networkManager.matchMaker == null)
         {
             networkManager.StartMatchMaker();
-        }
+        }*/
     }
+
 
     public void SetRoomSize(uint size)
     {

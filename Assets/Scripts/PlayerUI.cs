@@ -10,6 +10,7 @@ public class PlayerUI : MonoBehaviour {
     [SerializeField]
     private RectTransform healthFill;
 
+
     [SerializeField]
     GameObject pauseMenu;
 
@@ -63,7 +64,7 @@ public class PlayerUI : MonoBehaviour {
 
     private void SetAmountHealth(float amount)
     {
-        Debug.Log("health : " + amount);
+        
         healthFill.localScale = new Vector3(amount, 1f, 1f);
     }
 

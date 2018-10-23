@@ -161,6 +161,7 @@
      <Compile Include="Assets\Scripts\PlayerUI.cs" />
      <Compile Include="Assets\Scripts\PlayerWeapon.cs" />
      <Compile Include="Assets\Scripts\RoomListItem.cs" />
+     <Compile Include="Assets\Scripts\ScoreLine.cs" />
      <Compile Include="Assets\Scripts\Util.cs" />
      <Compile Include="Assets\Scripts\WeaponGraphics.cs" />
      <Compile Include="Assets\Scripts\WeaponManager.cs" />

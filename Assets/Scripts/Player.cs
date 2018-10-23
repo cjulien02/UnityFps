@@ -17,6 +17,27 @@ public class Player : NetworkBehaviour {
     private int maxHealth = 100;
 
     [SyncVar]
+    private int frags;
+
+    public int GeFrags()
+    {
+        return frags;
+    }
+
+    public void IncrementFrags()
+    {
+        frags++;
+    }
+
+    [SyncVar]
+    private int deaths;
+
+    public int GetDeaths()
+    {
+        return deaths;
+    }
+
+    [SyncVar]
     private int health;
 
     [SerializeField]
@@ -42,6 +63,7 @@ public class Player : NetworkBehaviour {
             GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
 
             SetDefaults();
+
         }       
   
         CmdBroadcastPlayserSetup();
@@ -98,6 +120,8 @@ public class Player : NetworkBehaviour {
 
     private void SetDefaults()
     {
+        deaths = 0;
+        frags = 0;
         health = maxHealth;
         _isDead = false;
 
@@ -131,7 +155,7 @@ public class Player : NetworkBehaviour {
     [ClientRpc]
     public void RpcTakeDamage(int damage)
     {
-
+        isDead = false;
         if (_isDead)
             return;
         health -= damage;
@@ -147,6 +171,8 @@ public class Player : NetworkBehaviour {
     private void Die()
     {
         _isDead = true;
+
+        deaths++;
 
         health = 0;
 

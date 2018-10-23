@@ -7,6 +7,8 @@ public class GameManager: MonoBehaviour {
 
     public MatchSettings matchSettings;
 
+    public Dictionary<string, Player> playerList = new Dictionary<string, Player>();
+
     [SerializeField]
     private GameObject sceneCamera;
 

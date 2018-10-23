@@ -118,8 +118,7 @@ public class PlayerShoot : NetworkBehaviour {
         Debug.Log(playerID + " a été touché.");
 
         Player player = GameManager.GetPlayer(playerID);
-        player.RpcTakeDamage(damage);
-        if(player.isDead)
-            GetComponent<Player>().IncrementFrags();
+        player.RpcTakeDamage(damage, GetComponent<Player>().name);
     }
+    
 }

@@ -17,27 +17,6 @@ public class Player : NetworkBehaviour {
     private int maxHealth = 100;
 
     [SyncVar]
-    private int frags;
-
-    public int GeFrags()
-    {
-        return frags;
-    }
-
-    public void IncrementFrags()
-    {
-        frags++;
-    }
-
-    [SyncVar]
-    private int deaths;
-
-    public int GetDeaths()
-    {
-        return deaths;
-    }
-
-    [SyncVar]
     private int health;
 
     [SerializeField]
@@ -103,7 +82,7 @@ public class Player : NetworkBehaviour {
 
         if (Input.GetKeyDown("k"))
         {
-            RpcTakeDamage(10);
+            RpcTakeDamage(10, GetComponent<Player>().name);
         }
     }
 
@@ -120,8 +99,6 @@ public class Player : NetworkBehaviour {
 
     private void SetDefaults()
     {
-        deaths = 0;
-        frags = 0;
         health = maxHealth;
         _isDead = false;
 
@@ -153,7 +130,7 @@ public class Player : NetworkBehaviour {
     }
 
     [ClientRpc]
-    public void RpcTakeDamage(int damage)
+    public void RpcTakeDamage(int damage, string shooterPLayerId)
     {
         isDead = false;
         if (_isDead)
@@ -165,15 +142,15 @@ public class Player : NetworkBehaviour {
         if(health == 0)
         {
             Die();
+            GameManager.GetPlayerScore(shooterPLayerId).IncrementFrags();
+            Debug.Log("Frags :" + GameManager.GetPlayerScore(shooterPLayerId).GetFrags());
+            GameManager.GetPlayerScore(GetComponent<Player>().name).IncrementDeaths();
         }
     }
 
     private void Die()
     {
         _isDead = true;
-
-        deaths++;
-
         health = 0;
 
         for (int i = 0; i < disableOnDeath.Length; i++)
@@ -203,6 +180,6 @@ public class Player : NetworkBehaviour {
             disableGameObjectsOnDeath[i].SetActive(false);
         }
 
-        StartCoroutine(Respawn());
+        StartCoroutine(Respawn()); 
     }
 }

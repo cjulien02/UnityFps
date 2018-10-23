@@ -49,7 +49,7 @@ public class PlayerUI : MonoBehaviour {
 
     private void UpdateScores()
     {
-        foreach(string playerName in GameManager.instance.playerList.Keys)
+        foreach(string playerName in GameManager.GetPlayerScores().Keys)
         {
             GameObject scoreLineGO = Instantiate(scoreLinePrefab);
             scoreLineGO.transform.SetParent(scoreLineListParent);
@@ -57,8 +57,8 @@ public class PlayerUI : MonoBehaviour {
 
             if(sl != null)
             {
-                Player p = GameManager.instance.playerList[playerName];
-                sl.Setup(playerName, p.GeFrags(), p.GetDeaths());
+                PlayerScore p = GameManager.GetPlayerScore(playerName);
+                sl.Setup(playerName, p.GetFrags(), p.GetDeaths());
             }
 
             scoreLineList.Add(scoreLineGO);

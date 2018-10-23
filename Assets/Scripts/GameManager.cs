@@ -7,8 +7,6 @@ public class GameManager: MonoBehaviour {
 
     public MatchSettings matchSettings;
 
-    public Dictionary<string, Player> playerList = new Dictionary<string, Player>();
-
     [SerializeField]
     private GameObject sceneCamera;
 
@@ -36,6 +34,11 @@ public class GameManager: MonoBehaviour {
     private const string PLAYER_ID_PREFIX = "Player "; 
 
     private static Dictionary<string, Player> players = new Dictionary<string, Player>();
+    private static Dictionary<string, PlayerScore> playerScores = new Dictionary<string, PlayerScore>();
+    public static Dictionary<string, PlayerScore> GetPlayerScores()
+    {
+        return playerScores;
+    }
 
     public static void RegisterPlayer(string netID, Player player)
     {
@@ -43,6 +46,8 @@ public class GameManager: MonoBehaviour {
 
         players.Add(playerID, player);
         player.transform.name = playerID;
+        if(!playerScores.ContainsKey(playerID))
+            playerScores.Add(playerID, new PlayerScore());
     }
 
     public static void UnregisterPlayer(string playerID)
@@ -53,6 +58,11 @@ public class GameManager: MonoBehaviour {
     public static Player GetPlayer(string playerID)
     {
         return players[playerID];
+    }
+
+    public static PlayerScore GetPlayerScore(string playerID)
+    {
+        return playerScores[playerID];
     }
 
     private void OnGUI()

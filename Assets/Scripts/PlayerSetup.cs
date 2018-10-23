@@ -35,7 +35,7 @@ public class PlayerSetup : NetworkBehaviour {
             playerUIInstance = Instantiate(playerUIPrefab);
             playerUIInstance.name = playerUIPrefab.name;
 
-            GameManager.instance.playerList.Add(GetComponent<Player>().name, GetComponent<Player>());
+            
             PlayerUI playerUI = playerUIInstance.GetComponent<PlayerUI>();
 
             playerUI.SetPlayerController(GetComponent<PlayerController>());
@@ -43,7 +43,6 @@ public class PlayerSetup : NetworkBehaviour {
             GetComponent<Player>().Setup();
             
         }
-
     }
 
     private void SetLayerRecursively(GameObject obj, int layer)
@@ -82,7 +81,6 @@ public class PlayerSetup : NetworkBehaviour {
 
         if (isLocalPlayer)
         {
-            GameManager.instance.playerList.Remove(GetComponent<Player>().name);
             GameManager.instance.SetSceneCameraActive(true);
 
             GameManager.UnregisterPlayer(transform.name);

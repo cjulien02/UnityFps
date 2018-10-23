@@ -36,7 +36,6 @@ GameObject:
   - component: {fileID: 4699296563546790}
   - component: {fileID: 33993568673398570}
   - component: {fileID: 23562295965541350}
-  - component: {fileID: 111483267686121602}
   - component: {fileID: 114633362650963014}
   m_Layer: 0
   m_Name: SMAW
@@ -176,20 +175,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1230752381062580}
   m_Mesh: {fileID: 4300000, guid: 33ae93f59fe88fc4e8e4fa0ef13dfeab, type: 3}
---- !u!111 &111483267686121602
-Animation:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1230752381062580}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &114633362650963014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,6 +189,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 198047377795934626}
   hitEffectPrefab: {fileID: 1271547249220356, guid: b9b840cd33d18fb4fa5ba10db0cc1b09,
     type: 2}
+  rotationX: 0
 --- !u!198 &198047377795934626
 ParticleSystem:
   m_ObjectHideFlags: 1

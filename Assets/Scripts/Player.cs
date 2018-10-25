@@ -5,6 +5,18 @@ using System.Collections;
 [RequireComponent(typeof(PlayerSetup))]
 public class Player : NetworkBehaviour {
 
+    private bool _canInteract = false;
+
+    public object interactableObject = null;
+
+    public GameObject interactableObjectContainer;
+
+    public bool canInteract
+    {
+        get { return _canInteract; }
+        set { _canInteract = value; }
+    }
+
     private bool _isDead = false;
 
     public bool isDead
@@ -84,6 +96,26 @@ public class Player : NetworkBehaviour {
         {
             RpcTakeDamage(10, GetComponent<Player>().name);
         }
+
+        if (Input.GetKeyUp("f"))
+        {
+            if(canInteract)
+            {
+                Debug.Log("Interaction");
+                if (interactableObject.GetType() == typeof(PlayerWeapon))
+                {
+                    GetComponent<WeaponManager>().EquipeWeapon((PlayerWeapon)interactableObject);
+                    Destroy(interactableObjectContainer);
+                }
+                    
+            }
+        }
+    }
+
+    public void SetInfoText(string text)
+    {
+        Debug.Log(GetComponent<PlayerSetup>().playerUIInstance.GetComponent<PlayerUI>());
+        GetComponent<PlayerSetup>().playerUIInstance.GetComponent<PlayerUI>().SetInfoText(text);
     }
 
     private IEnumerator Respawn()

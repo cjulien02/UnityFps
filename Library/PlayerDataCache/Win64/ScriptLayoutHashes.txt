@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Julien/Documents/UnityProjects/UnityFps/bin/fps_unity.exe
+C:/Users/jcavar01/Documents/UnityProject/fps_unity/bin/fps_unity.exe
 SceneListBegin?
 Assets/Scenes/Lobby.unity
 Assets/Scenes/MainScene.unity

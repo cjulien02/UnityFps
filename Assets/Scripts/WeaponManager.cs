@@ -33,10 +33,18 @@ public class WeaponManager : NetworkBehaviour {
     }
 
 
-    private void EquipeWeapon(PlayerWeapon weapon)
+    public void EquipeWeapon(PlayerWeapon weapon)
     {
+        Transform currentTransform = weapon.weaponGraphics.transform;
         currentWeapon = weapon;
-        
+
+        currentWeapon.weaponGraphics.transform.rotation = weaponHolder.rotation;
+        currentWeapon.weaponGraphics.transform.position = weaponHolder.position;
+        if (weaponHolder.childCount > 0)
+        {
+            Destroy(weaponHolder.GetChild(0).gameObject);
+        }
+            
         GameObject weaponInst = (GameObject)Instantiate(weapon.weaponGraphics, weaponHolder.position, weaponHolder.rotation);
         currentWeaponGraphics = weaponInst.GetComponent<WeaponGraphics>();
 

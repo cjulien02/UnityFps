@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour {
 
@@ -21,6 +22,9 @@ public class PlayerUI : MonoBehaviour {
     private Transform scoreLineListParent;
 
     [SerializeField]
+    Text interactionText;
+
+    [SerializeField]
     GameObject pauseMenu;
 
     [SerializeField]
@@ -35,6 +39,11 @@ public class PlayerUI : MonoBehaviour {
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void SetInfoText(string infoText)
+    {
+        interactionText.text = infoText;
     }
 
     public void SetPlayerController(PlayerController controller)
